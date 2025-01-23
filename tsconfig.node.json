@@ -7,7 +7,7 @@
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": false 
   },
   "include": ["vite.config.ts"]
 }
