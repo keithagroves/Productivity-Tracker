@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './Components/ui/card';
 import { Input } from './Components/ui/input';
 import { ParetoSection } from './Components/ParetoSection';

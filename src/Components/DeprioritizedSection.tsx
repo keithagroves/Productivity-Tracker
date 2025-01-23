@@ -26,15 +26,12 @@ export const DeprioritizedSection = ({ formData, setFormData }: DeprioritizedSec
 
   const moveBackToGoal = (taskIndex: number) => {
     const task = formData.deprioritizedTasks[taskIndex];
-    if (task.sourceGoalIndex === undefined) return;
-
+    if (task.sourceGoalIndex === undefined || task.sourceGoalTitle !== formData.deprioritizedTasks[taskIndex].sourceGoalTitle ) return;
     setFormData(prev => {
       const newDeprioritized = [...prev.deprioritizedTasks];
       newDeprioritized.splice(taskIndex, 1);
-
       const goalKey = `goal${task.sourceGoalIndex}`;
       const currentComponents = prev.goalComponents[goalKey] ?? [];
-
       return {
         ...prev,
         deprioritizedTasks: newDeprioritized,
@@ -63,10 +60,14 @@ export const DeprioritizedSection = ({ formData, setFormData }: DeprioritizedSec
           Add Task
         </Button>
       </div>
-
       <div className="space-y-3">
         {formData.deprioritizedTasks.map((task, index) => (
           <div key={`deprioritized-${index}`} className="group relative flex gap-2">
+            {task.sourceGoalTitle && (
+              <div className="min-w-24 px-3 py-2 bg-gray-100 rounded text-sm text-gray-700 flex items-center">
+                {task.sourceGoalTitle}
+              </div>
+            )}
             <Input
               placeholder={`Task ${index + 1} to not do today`}
               value={task.text}
@@ -106,4 +107,4 @@ export const DeprioritizedSection = ({ formData, setFormData }: DeprioritizedSec
       </div>
     </section>
   );
-}; 
+};

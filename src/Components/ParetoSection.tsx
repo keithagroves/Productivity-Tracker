@@ -65,7 +65,8 @@ export const ParetoSection = ({ formData, setFormData }: ParetoSectionProps) => 
         ...prev,
         deprioritizedTasks: [...prev.deprioritizedTasks, {
           text: componentToMove,
-          sourceGoalIndex: goalIndex
+          sourceGoalIndex: goalIndex,
+          sourceGoalTitle: prev.topGoals[goalIndex]
         }],
         goalComponents: {
           ...prev.goalComponents,

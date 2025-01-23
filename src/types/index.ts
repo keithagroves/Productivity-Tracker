@@ -36,6 +36,7 @@ export interface FormData {
   deprioritizedTasks: Array<{
     text: string;
     sourceGoalIndex?: number;
+    sourceGoalTitle?: string;
   }>;
   environmentSetup: EnvironmentSetup;
   taskInitiation: TaskInitiation;
